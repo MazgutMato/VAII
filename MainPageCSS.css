@@ -1,14 +1,28 @@
+body{
+    background-color: rgb(41, 43, 44)  !important;
+    color: white !important;
+}
 h1 {
-    background-color: dodgerblue;
-    color: white;
+    background-color: #e3f2fd;
+    color: black;
     padding: 20px;
 }
 .img-news {
     max-width: 100%;
     height: auto;
+    border-style: solid;
+    border-color: white;
 }
 .odkaz{
     font-size: 18px;
     font-weight: bold;
     color: white;
+}
+.tabulka {
+    text-align: center;
+    background-color: black;
+}
+.hodnotenie {
+    font-size: 50px;
+    text-align: center;
 }
