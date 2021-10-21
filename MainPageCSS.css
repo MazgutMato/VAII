@@ -30,15 +30,15 @@ h1 {
     text-align: center;
 }
 .zakladneinfo {
-    font-family: "Lucida Console";
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
 .obsah{
-    font-family: Helvetica, Arial, sans-serif;;
+    font-family: Helvetica, Arial, sans-serif;
     font-style: italic;
 }
 .zaujimavosti {
-    font-family: Helvetica, Arial, sans-serif;;
+    font-family: Helvetica, Arial, sans-serif;
     font-style: italic;
     list-style-type: square;
     list-style-position: inside;
