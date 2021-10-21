@@ -29,3 +29,25 @@ h1 {
     font-size: 50px;
     text-align: center;
 }
+.zakladneinfo {
+    font-family: "Lucida Console";
+    font-weight: bold;
+}
+.obsah{
+    font-family: Helvetica, Arial, sans-serif;;
+    font-style: italic;
+}
+.zaujimavosti {
+    font-family: Helvetica, Arial, sans-serif;;
+    font-style: italic;
+    list-style-type: square;
+    list-style-position: inside;
+}
+a:hover {
+    color: red !important;
+}
+.icon {
+    font-size: 50px;
+    color: black;
+    padding-right: 10px;
+}
