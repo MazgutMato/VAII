@@ -1,3 +1,9 @@
+<?php
+require "PHPClasses/App.php";
+
+$app = new App();
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>

@@ -1,3 +1,9 @@
+<?php
+require "PHPClasses/App.php";
+
+$app = new App();
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -44,38 +50,39 @@
                     <h1>Nejlepšie filmy</h1>
                 </div>
             </div>
-            <!--            NIE JE CAS ZOMRIET-->
+
+            <?php foreach ($app->getAllFilms() as $film) { ?>
             <div class="row align-items-center border-bottom border-top">
                 <div class="col-12 col-lg-4">
                     <table class="table tabulka">
                         <tbody>
                         <tr>
-                            <td><img src="https://i.ytimg.com/vi/RIlGSWxcRts/maxresdefault.jpg" class="img-news" alt="..."></td>
+                            <td><img src="<?= $film->getObrazky()[0]->getUrl() ?>" class="img-news" alt="..."></td>
                         </tr>
                         <tr>
-                            <td><a href="Filmy/NieJeCasZomriet.html" class="odkaz">NIE JE ČAS ZOMRIEŤ</a></td>
+                            <td><a href="filmInfo.php?id=?=<?=$film->getId()?>" class="odkaz"><?=$film->getNazov()?></a></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="col-12 col-lg-5 p-5 zakladneinfo">
                     <p>
-                        Orig. názov: No Time to Die
+                        Orig. názov: <?=$film->getOrgNazov()?>
                     </p>
                     <p>
-                        Žáner: akčný triler
+                        Žáner: <?=$film->getZaner()?>
                     </p>
                     <p>
-                        Krajina: USA, Veľká Británia
+                        Krajina: <?=$film->getKrajina()?>
                     </p>
                     <p>
-                        Réžia: Cary Joji Fukunaga
+                        Réžia: <?=$film->getRezia()?>
                     </p>
                     <p>
-                        Scenár: Neal Purvis, Robert Wade, Scott Z. Burns, Cary Joji Fukunaga, Phoebe Waller-Bridge
+                        Scenár: <?=$film->getScenar()?>
                     </p>
                     <p>
-                        Hrajú: Daniel Craig, Rami Malek, Ana de Armas, Léa Seydoux, Christoph Waltz, Lashana Lynch, Ralph Fiennes, Jeffrey Wright, Ben Whishaw, Billy Magnussen
+                        Hrajú: <?=$film->getHraju()?>
                     </p>
                 </div>
                 <div class="col-12 col-lg-3">
@@ -87,138 +94,8 @@
                     </div>
                 </div>
             </div>
-            <!--            KRUDOVCI2-->
-            <div class="row align-items-center border-bottom border-top">
-                <div class="col-12 col-lg-4">
-                    <table class="table tabulka">
-                        <tbody>
-                        <tr>
-                            <td><img src="https://pbs.twimg.com/media/EoF8AIMVoAAf-h4.jpg" class="img-news" alt="..."></td>
-                        </tr>
-                        <tr>
-                            <td><a href="Filmy/KrudovciNovyVek.html" class="odkaz">KRÚDOVCI: NOVÝ VEK</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-12 col-lg-5 p-5 zakladneinfo">
-                    <p>
-                        Orig. názov: Croods 2
-                    </p>
-                    <p>
-                        Žáner: animovaný, komédia
-                    </p>
-                    <p>
-                        Krajina: USA
-                    </p>
-                    <p>
-                        Réžia: Joel Crawford
-                    </p>
-                    <p>
-                        Scenár: Kevin Hageman, Dan Hageman
-                    </p>
-                    <p>
-                        Hrajú: Peter Rúfus, Kristína Svarinská, Lucia Hurajová, Zuzana Kronerová, Andrea Karnasová, Marek Suchitra
+            <?php } ?>
 
-                        Hudba: Mark Mothersbaugh
-                    </p>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="row">
-                        <p class="text-center fs-2">Hodnotenie</p>
-                    </div>
-                    <div class="row">
-                        <p class="hodnotenie border bg-danger">74%</p>
-                    </div>
-                </div>
-            </div>
-
-<!--            VENOM2-->
-            <div class="row align-items-center border-bottom border-top">
-                <div class="col-12 col-lg-4">
-                    <table class="table tabulka">
-                        <tbody>
-                        <tr>
-                            <td><img src="https://www.cine-max.sk/fileadmin/user_upload/venom2-09.jpg" class="img-news" alt="..."></td>
-                        </tr>
-                        <tr>
-                            <td><a href="Filmy/Venom2.html" class="odkaz">VENOM 2: CARNAGE PRICHÁDZA</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-12 col-lg-5 p-5 zakladneinfo">
-                    <p>
-                        Orig. názov: Venom: Let There Be Carnage
-                    </p>
-                    <p>
-                        Žáner: sci-fi thriller
-                    </p>
-                    <p>
-                        Krajina: USA
-                    </p>
-                    <p>
-                        Réžia: Andy Serkis
-                    </p>
-                    <p>
-                        Scenár: Kelly Marcel
-                    </p>
-                    <p>
-                        Hrajú: Tom Hardy, Michelle Williams, Woody Harrelson, Naomie Harris, Stephen Graham, Reid Scott
-                    </p>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="row">
-                        <p class="text-center fs-2">Hodnotenie</p>
-                    </div>
-                    <div class="row">
-                        <p class="hodnotenie border bg-danger">72%</p>
-                    </div>
-                </div>
-            </div>
- <!--            HALLOWEEN ZABÍJA-->
-            <div class="row align-items-center border-bottom border-top">
-                <div class="col-12 col-lg-4">
-                    <table class="table tabulka">
-                        <tbody>
-                        <tr>
-                            <td><img src="https://staticg.sportskeeda.com/editor/2021/06/b4b21-16246274969644-800.jpg" class="img-news" alt="..."></td>
-                        </tr>
-                        <tr>
-                            <td><a href="Filmy/HalloweenZabija.html" class="odkaz">HALLOWEEN ZABÍJA</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-12 col-lg-5 p-5 zakladneinfo">
-                    <p>
-                        Orig. názov: Halloween Kills
-                    </p>
-                    <p>
-                        Žáner: horor
-                    </p>
-                    <p>
-                        Krajina: USA
-                    </p>
-                    <p>
-                        Réžia: David Gordon Green
-                    </p>
-                    <p>
-                        Scenár: Scott Teems, Danny McBride, David Gordon Green
-                    </p>
-                    <p>
-                        Hrajú: Jamie Lee Curtis, Judy Greer, Andi Matichak, Will Patton, Thomas Mann and Anthony Michael Hall
-                    </p>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <div class="row">
-                        <p class="text-center fs-2">Hodnotenie</p>
-                    </div>
-                    <div class="row">
-                        <p class="hodnotenie border bg-danger">50%</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
