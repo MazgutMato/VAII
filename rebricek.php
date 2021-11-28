@@ -60,7 +60,7 @@ $app = new App();
                             <td><img src="<?= $film->getObrazky()[0]->getUrl() ?>" class="img-news" alt="..."></td>
                         </tr>
                         <tr>
-                            <td><a href="filmInfo.php?id=?=<?=$film->getId()?>" class="odkaz"><?=$film->getNazov()?></a></td>
+                            <td><a href="filmInfo.php?id=<?=$film->getId()?>" class="odkaz"><?=$film->getNazov()?></a></td>
                         </tr>
                         </tbody>
                     </table>

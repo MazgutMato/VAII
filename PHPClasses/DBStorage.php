@@ -29,9 +29,9 @@ class DBStorage
     }
 
     public function getFilm($id) {
-        $stmt = $this->con->prepare("SELECT * FROM film WHERE id=?");
-        $stmt->execute([$id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE);
+        $stmt = $this->con->prepare("SELECT * FROM film WHERE id = ?");
+        $stmt->execute([intval($id)]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Film');
         $film = $stmt->fetch();
         $stmt = $this->con->prepare("SELECT * FROM obrazok WHERE film_id = ?");
         $stmt->execute([intval($film->getId())]);
