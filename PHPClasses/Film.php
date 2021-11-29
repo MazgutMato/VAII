@@ -4,11 +4,12 @@ class Film
 {
     public function __construct(private int $id = 0, private ?string $nazov = null, private ?string $orgNazov = null,
                                 private ?string $zaner = null,private ?string $krajina = null,private ?string $rezia = null,
-                                private ?string $scenar = null,private ?string $hraju = null,private ?string $obsah = null)
+                                private ?string $scenar = null,private ?string $hraju = null,private ?string $obsah = null,
+                                private int $pocetHviezd = 0, private int $pocetHodnoteni = 0)
     {
     }
 
-    private array $zaujimavosti;
+    private array $komentare;
     private array $obrazky;
 
     /**
@@ -158,22 +159,6 @@ class Film
     /**
      * @return array
      */
-    public function getZaujimavosti(): array
-    {
-        return $this->zaujimavosti;
-    }
-
-    /**
-     * @param array $zaujimavosti
-     */
-    public function setZaujimavosti(array $zaujimavosti): void
-    {
-        $this->zaujimavosti = $zaujimavosti;
-    }
-
-    /**
-     * @return array
-     */
     public function getObrazky(): array
     {
         return $this->obrazky;
@@ -185,5 +170,58 @@ class Film
     public function setObrazky(array $obrazky): void
     {
         $this->obrazky = $obrazky;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPocetHviezd(): int
+    {
+        return $this->pocetHviezd;
+    }
+
+    /**
+     * @param int $pocetHviezd
+     */
+    public function setPocetHviezd(int $pocetHviezd): void
+    {
+        $this->pocetHviezd = $pocetHviezd;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPocetHodnoteni(): int
+    {
+        return $this->pocetHodnoteni;
+    }
+
+    /**
+     * @param int $pocetHodnoteni
+     */
+    public function setPocetHodnoteni(int $pocetHodnoteni): void
+    {
+        $this->pocetHodnoteni = $pocetHodnoteni;
+    }
+
+    public function getPriemerneHodnotenie() {
+        $priemer = $this->pocetHviezd/$this->pocetHodnoteni;
+        return $priemer;
+    }
+
+    /**
+     * @return array
+     */
+    public function getKomentare(): array
+    {
+        return $this->komentare;
+    }
+
+    /**
+     * @param array $komentare
+     */
+    public function setKomentare(array $komentare): void
+    {
+        $this->komentare = $komentare;
     }
 }

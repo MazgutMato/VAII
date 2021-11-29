@@ -1,7 +1,10 @@
 <?php
+
 require "PHPClasses/App.php";
 
 $app = new App();
+$najFilm = $app->getNajviacHodFilm();
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,7 @@ $app = new App();
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <i class="fas fa-film icon"></i>
+        <i class="bi bi-film icon"></i>
         <a class="navbar-brand" href="#">Filmpedia</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,89 +56,70 @@ $app = new App();
             </div>
         </div>
         <div class="row">
+
+            <?php
+             $arraySize = count($app->getAllFilms());
+             foreach ($app->getAllFilms() as $key => $film) {
+                 if ($key > ($arraySize - 4)) { ?>
             <div class="col-12 col-lg-4">
                 <table class="table tabulka">
                     <tbody>
                     <tr>
-                        <td><img src="https://www.cine-max.sk/fileadmin/user_upload/venom2-09.jpg" class="img-news" alt="..."></td>
+                        <td><img src=" <?= $film->getObrazky()[0]->getUrl() ?>" class="img-news" alt="..."></td>
                     </tr>
                     <tr>
-                        <td><a href="Filmy/Venom2.html" class="odkaz">VENOM 2: CARNAGE PRICHÁDZA</a></td>
+                        <td><a href="filmInfo.php?id=<?=$film->getId()?>" class="odkaz"><?= $film->getNazov() ?></a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-12 col-lg-4">
-                <table class="table tabulka">
-                    <tbody>
-                    <tr>
-                        <td><img src="https://i.ytimg.com/vi/RIlGSWxcRts/maxresdefault.jpg" class="img-news" alt="..."></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Filmy/NieJeCasZomriet.html" class="odkaz">NIE JE ČAS ZOMRIEŤ</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-12 col-lg-4">
-                <table class="table tabulka">
-                    <tbody>
-                    <tr>
-                        <td><img src="https://pbs.twimg.com/media/EoF8AIMVoAAf-h4.jpg" class="img-news" alt="..."></td>
-                    </tr>
-                    <tr>
-                        <td><a href="Filmy/KrudovciNovyVek.html" class="odkaz">KRÚDOVCI: NOVÝ VEK</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+            <?php }} ?>
+
         </div>
     </div>
     <!--Čoskoro v kinách-->
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Čoskoro v kinách</h1>
+                <h1>Populárny film</h1>
             </div>
         </div>
         <div class="row align-items-center p-3">
             <div class="col-12 col-lg-6 zakladneinfo">
                 <p>
-                    Orig. názov: Halloween Kills
+                    Orig. názov: <?= $najFilm->getNazov() ?>
                 </p>
                 <p>
-                    Žáner: horor
+                    Žáner: <?= $najFilm->getZaner() ?>
                 </p>
                 <p>
-                    Krajina: USA
+                    Krajina: <?= $najFilm->getKrajina() ?>
                 </p>
                 <p>
-                    Réžia: David Gordon Green
+                    Réžia: <?= $najFilm->getRezia() ?>
                 </p>
                 <p>
-                    Scenár: Scott Teems, Danny McBride, David Gordon Green
+                    Scenár: <?= $najFilm->getScenar() ?>
                 </p>
                 <p>
-                    Hrajú: Jamie Lee Curtis, Judy Greer, Andi Matichak, Will Patton, Thomas Mann and Anthony Michael Hall
+                    Hrajú: <?= $najFilm->getHraju() ?>
                 </p>
             </div>
             <div class="col-12 col-lg-6">
                 <table class="table tabulka">
                     <tbody>
                     <tr>
-                        <td><img src="https://staticg.sportskeeda.com/editor/2021/06/b4b21-16246274969644-800.jpg" class="img-news" alt="..."></td>
+                        <td><img src=" <?= $najFilm->getObrazky()[0]->getUrl() ?>" class="img-news" alt="..."></td>
                     </tr>
                     <tr>
-                        <td><a href="Filmy/HalloweenZabija.html" class="odkaz">HALLOWEEN ZABÍJA</a></td>
+                        <td><a href="filmInfo.php?id=<?=$najFilm->getId()?>" class="odkaz"><?= $film->getNazov() ?></a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-12 obsah p-5">
                 <p>
-                    Niektoré netvory je nemožné zabiť. Michael Myers, legendárny tichý zabijak s bielou maskou, úspešne uniká už vyše štyridsať rokov. Horor Halloween zabíja je ďalšou kapitolou v úspešnej a mimoriadne húževnatej sérii.
-
-                    Laurie Strode (Jamie Lee Curtis) tak dlho utekala pred tichým vraždiacim monštrom menom Michael Myers, až sa rozhodla zmeniť taktiku. Prestala utekať, začala bojovať a nalákala Michaela do dokonalej pasce. Tá síce vyšla, ale … Príbeh filmu Halloween zabíja začína v okamihu, keď predchádzajúci film skončil. Ťažko zranená Laurie odchádza v sprievode dcéry a vnučky do nemocnice a v protismere sa k jej horiacemu domu rútia hasiči. V jeho útrobách je v ohnivom pekle uväznený zabijak, ktorý ju prenasledoval celý život. Bohužiaľ, nielen mačky majú sedem životov. Ubehne pár minút a Michael Myers už zase chodí ulicami mesta, ktoré sa pripravuje na halloweensku noc, a úspešne zvyšuje počet svojich obetí. Správa o tom, že z jej pasce unikol, sa dostane aj k Laurie, ktorá si je istá, že keď Michaela porazila raz, porazí ho aj druhý raz. Len bude potrebovať pomoc. Bude ale nutné presvedčiť obyvateľov mestečka, aby sa Myersa prestali báť.
+                    <?=$najFilm->getObsah()?>
                 </p>
             </div>
         </div>

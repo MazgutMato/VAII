@@ -1,7 +1,7 @@
 <?php
 
 require "Film.php";
-require "Zaujimavost.php";
+require "Komment.php";
 require "Obrazok.php";
 require "DBStorage.php";
 
@@ -20,5 +20,8 @@ class App
 
     public function getFilm($id) {
         return $this->storage->getFilm($id);
+    }
+    public function getNajviacHodFilm() {
+        return $this->storage->getNajviacHodFilm();
     }
 }

@@ -19,13 +19,14 @@ $app = new App();
 
     <!--    icons-->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
 </head>
 <body>
     <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <i class="fas fa-film icon"></i>
+            <i class="bi bi-film icon"></i>
             <a class="navbar-brand" href="#">Filmpedia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -90,7 +91,17 @@ $app = new App();
                         <p class="text-center fs-2">Hodnotenie</p>
                     </div>
                     <div class="row">
-                        <p class="hodnotenie border bg-danger">80%</p>
+                        <p class="hodnotenie border bg-danger">
+                            <?php
+                                if ($film->getPocetHodnoteni() > 0) {
+                                    ?> <?=
+                                    $film->getPriemerneHodnotenie();
+                                    ?>
+                                    <?php
+                                } else {
+                                    ?>0 <?php
+                                }
+                            ?>/ 5 <i class="bi bi-star"></i> </p>
                     </div>
                 </div>
             </div>

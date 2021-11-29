@@ -21,13 +21,14 @@ $film = $app->getFilm($_GET["id"]);
 
     <!--    icons-->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
 </head>
 <body>
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <i class="fas fa-film icon"></i>
+        <i class="bi bi-film icon"></i>
         <a class="navbar-brand" href="#">Filmpedia</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,7 +59,7 @@ $film = $app->getFilm($_GET["id"]);
                     if ($index == 0) { ?>
                         active
                     <?php } ?> ">
-                        <img src="<?= $obrazok->getUrl() ?>" class="d-block w-100 img-news" alt="...">
+                        <img src="<?= $obrazok->getUrl() ?>" class="d-block w-100 img-info" alt="...">
                     </div>
                     <?php } ?>
                 </div>
@@ -104,14 +105,16 @@ $film = $app->getFilm($_GET["id"]);
         </div>
     </div>
     <div class="row">
-        <div class="col-12 mt-2"><h1>Zaujimavosti</h1></div>
+        <div class="col-12 mt-2"><h1>Komentáre</h1></div>
     </div>
     <div class="row">
-        <div class="col-12 zaujimavosti">
+        <div class="col-12 komentare">
             <ul>
+                <?php foreach ($film->getKomentare() as $komentar) { ?>
                 <li>
-                    Masky dýně, zelené čarodějnice a kostlivce, které lze vidět v traileru, jsou tytéž masky, okolo nichž se točil příběh Halloweenu 3 (1982), jediném filmu ze série, kde se neobjevuje Michael Myers.
+                    <?= $komentar->getText(). "(" . $komentar->getAutor() . ")"?>
                 </li>
+                <?php } ?>
             </ul>
         </div>
     </div>

@@ -1,8 +1,8 @@
 <?php
 
-class Zaujimavost
+class Komment
 {
-    public function __construct(private int $id = 0,private ?string $text = null,private ?string $date = null,
+    public function __construct(private int $id = 0,private ?string $text = null,private $date = null,
                                 private ?string $autor = null)
     {
 

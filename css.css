@@ -12,7 +12,7 @@ h1 {
 }
 .img-news {
     max-width: 100%;
-    height: auto;
+    height: 200px;
     border-style: solid;
     border-color: white;
 }
@@ -24,6 +24,8 @@ h1 {
 .tabulka {
     text-align: center;
     background-color: black;
+    border-style: inset;
+    border-color: white;
 }
 .hodnotenie {
     font-size: 50px;
@@ -37,7 +39,7 @@ h1 {
     font-family: Helvetica, Arial, sans-serif;
     font-style: italic;
 }
-.zaujimavosti {
+.komentare {
     font-family: Helvetica, Arial, sans-serif;
     font-style: italic;
     list-style-type: square;
@@ -50,4 +52,8 @@ a:hover {
     font-size: 25px;
     color: black;
     padding-right: 10px;
+}
+.img-info {
+    border-style: solid;
+    border-color: white;
 }
